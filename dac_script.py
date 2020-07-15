@@ -1,4 +1,4 @@
-import dac_linearity_class
+import dac_linearity
 import pandas as pd
 
 # Read .csv file
@@ -29,7 +29,7 @@ y_tue_arr = y_tue.to_numpy()
 ideal_lsb = 6.25 / (2**13 - 1)
 
 # Computing for the linearity parameters
-dev145 = dac_linearity_class.Linearity(y_vload_arr, x_arr, 13, ideal_lsb, 0)
+dev145 = dac_linearity.Linearity(y_vload_arr, x_arr, 13, ideal_lsb, 0)
 dev145_dnl = dev145.dnl()
 dev145_inl = dev145.inl()
 dev145_tue = (dev145.tue()/6.25)*100
